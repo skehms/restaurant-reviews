@@ -1,0 +1,7 @@
+{
+  "name": "restaurant_reviews",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
+}
