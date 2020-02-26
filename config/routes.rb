@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  get 'reviews/new'
-  get 'reviews/create'
+  namespace :admin do
+    get 'restaurants/index'
+  end
+  namespace :admin do
+    resources :restaurants, only: [:index]
+  end
+
+
   resources :restaurants do
     collection do
       get 'top'
@@ -12,6 +18,8 @@ Rails.application.routes.draw do
   #'restaurants/:id/chef'
   resources :reviews, only: [:new, :create]
   end
+
+  resources :reviews, only: [:destroy]
   # get '/restaurants/top', to: "restaurants#top", as: :top_restaurant
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

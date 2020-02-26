@@ -1,7 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :chef]
 
-
   def top
     @restaurants = Restaurant.where(stars: 5)
   end
@@ -16,6 +15,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @reviews = @restaurant.reviews
+    @review = Review.new
   end
 
   def new
@@ -28,6 +28,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.save
+    redirect_to restaurant_path(@restaurant)
   end
 
   def update

@@ -23,6 +23,8 @@
 <h1>Reviews</h1>
 <% @reviews.each do |review| %>
   <p><%= review.content %></p>
+   <%= link_to "Delete", review_path(review), method: :delete %>
+
 <% end %>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
